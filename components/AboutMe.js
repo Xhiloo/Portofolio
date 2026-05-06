@@ -12,7 +12,7 @@ export default function AboutMe() {
       >
         <img 
           className="about-avatar" 
-          src="https://via.placeholder.com/250" 
+          src="https://drive.google.com/file/d/1oyJ0KQf5RUvplFl-akVBsUMBXnXEziRj/view?usp=sharing" 
           alt="Profile"
         />
         {/* 🎯 GANTI URL di atas dengan foto Anda sendiri */}
@@ -21,8 +21,9 @@ export default function AboutMe() {
           <h2>About Me</h2>
           <p>
             Seorang developer passionate dengan fokus pada membuat pengalaman pengguna 
-            yang luar biasa. Suka mengeksplorasi teknologi baru dan mengubah ide menjadi 
-            kode yang fungsional dan indah.
+            yang luar biasa. Suka mengeksplorasi teknologi(AI) baru dan mengubah ide menjadi 
+            kode yang fungsional dan indah.Pria (Mahasiswa) yang suka belajar hal baru dan selalu ingin berkembang.
+            Pria yang udah IMMO in ML men.Jungler Assasin Keras Boss.
           </p>
           {/* 🎯 GANTI DESKRIPSI di atas dengan cerita Anda */}
           

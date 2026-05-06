@@ -41,7 +41,7 @@ export default function Hero() {
         transition={{ duration: 1 }}
       >
         <h1>
-          Hi, I'm <span className="highlight">Xhiloo</span>
+          Hi, I'm <span className="highlight">Ilham Daffa Maulana</span>
         </h1>
         {/* 🎯 GANTI "Xhiloo" dengan nama Anda di atas */}
         

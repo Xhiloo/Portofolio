@@ -2,12 +2,14 @@ import { motion } from 'framer-motion'
 
 // 🎯 DAFTAR SKILLS - EDIT LEVEL (0-1) SESUAI KEMAMPUAN
 const skills = [
-  { name: 'React', level: 0.85 },
-  { name: 'Next.js', level: 0.8 },
-  { name: 'JavaScript', level: 0.9 },
+  { name: 'React', level: 0.75 },
+  { name: 'Next.js', level: 0.7 },
+  { name: 'JavaScript', level: 0.7 },
   { name: 'CSS/SCSS', level: 0.75 },
   { name: 'HTML', level: 0.95 },
   { name: 'Framer Motion', level: 0.7 },
+  { name: 'Fanny,Lancelot,Ling,Haya', level: 0.95 },
+  { name: 'Woodpecker,M1590,AWM', level: 0.95 },
 ]
 
 export default function Skills() {
