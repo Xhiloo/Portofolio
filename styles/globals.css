@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ============================================
+   CSS VARIABLES - LIGHT MODE (DEFAULT)
+   ============================================ */
+:root {
+  --main-bg: #f8fbfd;
+  --main-txt: #222;
+  --accent: #578cf8;
+  --accent-hover: #4a7ed4;
+  --card-bg: #ffffff;
+  --card-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  --navbar-blur: rgba(255, 255, 255, 0.7);
+  --border-color: #e5e7eb;
+}
+
+/* ============================================
+   CSS VARIABLES - DARK MODE
+   ============================================ */
+html[data-theme='dark'] {
+  --main-bg: #0f1419;
+  --main-txt: #f6f9fc;
+  --accent: #6b8cff;
+  --accent-hover: #7fa3ff;
+  --card-bg: #1a2332;
+  --card-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  --navbar-blur: rgba(15, 20, 25, 0.7);
+  --border-color: #2d3748;
+}
+
+/* ============================================
+   RESET & BASE STYLES
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', 'Poppins', Arial, sans-serif;
+  background: var(--main-bg);
+  color: var(--main-txt);
+  transition: background 0.3s ease, color 0.3s ease;
+  line-height: 1.6;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', 'Inter', Arial, sans-serif;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: clamp(2rem, 8vw, 4rem);
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+/* ============================================
+   MAIN LAYOUT
+   ============================================ */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+section {
+  padding: 5rem 0;
+  position: relative;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+button {
+  font-family: 'Inter', 'Poppins', Arial, sans-serif;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.33, 0.66, 0.66, 1);
+}
+
+button:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(87, 140, 248, 0.3);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* ============================================
+   FORM ELEMENTS
+   ============================================ */
+input,
+textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--main-txt);
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(87, 140, 248, 0.1);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--main-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-hover);
+}
+
+/* ============================================
+   SELECTION
+   ============================================ */
+::selection {
+  background: var(--accent);
+  color: white;
+}
+
+::-moz-selection {
+  background: var(--accent);
+  color: white;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
+  main {
+    padding: 0 1rem;
+  }
+
+  section {
+    padding: 3rem 0;
+  }
+
+  h1 {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+
+  h2 {
+    font-size: clamp(1.25rem, 4vw, 1.75rem);
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 0 0.75rem;
+  }
+
+  section {
+    padding: 2rem 0;
+  }
+
+  button {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

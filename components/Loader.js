@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 
-// Loading animation yang muncul pertama kali buka website
 export default function Loader() {
   return (
     <div className="loader">
@@ -9,7 +8,7 @@ export default function Loader() {
         animate={{
           scale: [1, 1.3, 1],
           rotate: [0, 360, 0],
-          background: ["#8de6ec", "#5372ff", "#8de6ec"]
+          background: ["#578cf8", "#6b8cff", "#578cf8"]
         }}
         transition={{ repeat: Infinity, duration: 1.4 }}
         className="loader__circle"

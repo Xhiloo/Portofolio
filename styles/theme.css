@@ -1,6 +1,7 @@
-/* ===== Animasi & Transisi Khusus ===== */
+/* ============================================
+   ANIMATIONS
+   ============================================ */
 
-/* Animasi fade dan slide untuk halaman */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -15,7 +16,7 @@
 @keyframes slideInLeft {
   from {
     opacity: 0;
-    transform: translateX(-40px);
+    transform: translateX(-50px);
   }
   to {
     opacity: 1;
@@ -26,7 +27,7 @@
 @keyframes slideInRight {
   from {
     opacity: 0;
-    transform: translateX(40px);
+    transform: translateX(50px);
   }
   to {
     opacity: 1;
@@ -34,12 +35,23 @@
   }
 }
 
-@keyframes pulse {
-  0%, 100% {
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
     opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
   }
   50% {
-    opacity: 0.5;
+    transform: translateY(-10px);
   }
 }
 
@@ -52,7 +64,470 @@
   }
 }
 
-/* Glassmorphism effect untuk elements */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes blink {
+  0%, 49%, 100% {
+    opacity: 1;
+  }
+  50%, 99% {
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   NAVBAR STYLES
+   ============================================ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  background: var(--main-bg);
+  z-index: 999;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.navbar--scrolled {
+  background: var(--navbar-blur);
+  backdrop-filter: blur(10px);
+  border-bottom-color: var(--border-color);
+  box-shadow: var(--card-shadow);
+}
+
+.navbar__content {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  transition: all 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+.navbar__links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.navbar__links a {
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar__links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.navbar__links a:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .navbar__links {
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* ============================================
+   THEME TOGGLE BUTTON
+   ============================================ */
+#theme-toggle {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  box-shadow: var(--card-shadow);
+}
+
+#theme-toggle:hover {
+  transform: scale(1.1);
+  border-color: var(--accent);
+}
+
+#theme-toggle:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+  #theme-toggle {
+    top: 1rem;
+    right: 1rem;
+    width: 45px;
+    height: 45px;
+  }
+}
+
+/* ============================================
+   LOADER
+   ============================================ */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--main-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loader__circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-bottom: 2rem;
+}
+
+.loader__text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--accent);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero-section {
+  margin-top: 80px;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInUp 1s ease-out;
+}
+
+.hero-content {
+  text-align: center;
+}
+
+.hero-content h1 {
+  margin-bottom: 1rem;
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.highlight {
+  color: var(--accent);
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+.typed-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--accent);
+  height: 2rem;
+  display: block;
+  animation: slideInRight 0.8s ease-out 0.2s both;
+}
+
+.typed-text::after {
+  content: '|';
+  animation: blink 1s infinite;
+  margin-left: 5px;
+}
+
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
+.about-section {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 3rem;
+  box-shadow: var(--card-shadow);
+}
+
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.about-avatar {
+  width: 250px;
+  height: 250px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(87, 140, 248, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.about-avatar:hover {
+  transform: scale(1.05);
+}
+
+.about-container h2 {
+  margin-bottom: 1.5rem;
+}
+
+.about-container p {
+  line-height: 1.8;
+  color: var(--main-txt);
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 2rem;
+  }
+
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-avatar {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+}
+
+/* ============================================
+   GALLERY / PORTFOLIO SECTION
+   ============================================ */
+.gallery-section {
+  text-align: center;
+}
+
+.gallery-section h2 {
+  margin-bottom: 3rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.gallery-card {
+  aspect-ratio: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease;
+}
+
+.gallery-card:hover {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-card:hover .overlay {
+  opacity: 1;
+}
+
+.overlay span {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* ============================================
+   MODAL
+   ============================================ */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  animation: fadeInUp 0.3s ease-out;
+  backdrop-filter: blur(5px);
+}
+
+.modal {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 600px;
+  width: 90%;
+  animation: scaleIn 0.3s ease-out;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.modal h3 {
+  margin-bottom: 1rem;
+}
+
+.modal p {
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+.modal button {
+  width: 100%;
+}
+
+/* ============================================
+   SKILLS SECTION
+   ============================================ */
+.skills-section {
+  text-align: center;
+}
+
+.skills-section h2 {
+  margin-bottom: 3rem;
+}
+
+.skills-list {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.skill-bar {
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.skill-bar span {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.skill-bg {
+  width: 100%;
+  height: 8px;
+  background: var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+  border-radius: 10px;
+  transition: width 1s ease-out;
+}
+
+/* ============================================
+   CONTACT SECTION
+   ============================================ */
+.contact-section {
+  text-align: center;
+}
+
+.contact-section h2 {
+  margin-bottom: 3rem;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+}
+
+.contact-form input,
+.contact-form textarea {
+  margin-bottom: 1.5rem;
+}
+
+.contact-form button {
+  width: 100%;
+}
+
+.form-error {
+  display: block;
+  color: #ef4444;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.form-success {
+  display: block;
+  color: #10b981;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
 .glass-effect {
   background: rgba(248, 251, 253, 0.25);
   backdrop-filter: blur(10px);
@@ -64,94 +539,8 @@ html[data-theme='dark'] .glass-effect {
   border-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Smooth page transitions */
 .page-enter {
   animation: fadeInUp 0.6s ease-out;
-}
-
-.page-exit {
-  animation: fadeInUp 0.6s ease-out reverse;
-}
-
-/* Hover scale effect untuk interactive elements */
-.hover-scale {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hover-scale:hover {
-  transform: scale(1.05);
-}
-
-/* Smooth scrollbar styling */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg-light);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-primary);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-secondary);
-}
-
-/* Focus styles untuk accessibility */
-:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-}
-
-/* Selection color */
-::selection {
-  background: var(--color-primary);
-  color: white;
-}
-
-::-moz-selection {
-  background: var(--color-primary);
-  color: white;
-}
-
-/* Smooth animations untuk transisi tema */
-body,
-.btn,
-.navbar,
-.theme-toggle {
-  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
-/* Parallax effect untuk hero section */
-.hero-section {
-  position: relative;
-  overflow: hidden;
-}
-
-/* Loading skeleton animation */
-.skeleton {
-  animation: shimmer 2s infinite;
-  background-color: var(--border-light);
-  background-image: linear-gradient(
-    90deg,
-    var(--border-light),
-    rgba(255, 255, 255, 0.3),
-    var(--border-light)
-  );
-  background-size: 200% 100%;
-}
-
-/* Bounce animation untuk call-to-action */
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
 }
 
 .bounce-animation {
